@@ -7,7 +7,7 @@ With GroupDocs Viewer plugin for Textpattern you can easily view on website PDF'
 INSTALLATION
 
 	1. To install: textpattern > admin > plugins
-	2. Paste the following text into the 'Install plugin' box:
+	2. Paste the text-code (at .txt file) into the 'Install plugin' box
 
 Sign, Manage, Annotate, Assemble, Compare and Convert Documents with GroupDocs
 
