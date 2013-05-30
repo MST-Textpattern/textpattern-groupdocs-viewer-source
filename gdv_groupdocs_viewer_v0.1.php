@@ -53,8 +53,8 @@ if (!defined('txpinterface'))
  * GroupDocs Viewer Plugin v0.1.0
  * Author: Orest Loginsky
  * Date: 26.10.2012
- * 
- * By default: Textpattern doesn't have WYSIWYG Editor (ex.: TinyMCE), means that you will be seeing 
+ *
+ * By default: Textpattern doesn't have WYSIWYG Editor (ex.: TinyMCE), means that you will be seeing
  * only <iframe> tag while editing page. See results in "Article preview" or your site.
  */
 
@@ -66,7 +66,7 @@ if (@txpinterface == 'admin') {
 
 // add GroupDocs button
 function gdv_append_button($event, $step, $data, $rs) {
-    
+
     $js= gdv_javascript();
     $button = '<input type="button" value="Insert GroupDocs Viewer File ID" onclick="gdv_insert_fileid()">';
     $output_result = isset($rs['url_title']) ? '<br/>' . $js.$button : '';
@@ -78,15 +78,15 @@ function gdv_javascript(){
     // jquery is working here
     $r= '<script>';
     $r.= 'function gdv_insert_fileid(){
-        
+
             // Enter GroupDocs File ID
             var ans=prompt("Enter GroupDocs File ID:","");
             if(ans.length<50) { alert("Sorry, but this File ID is too short"); return false; }
             if(ans.length>70) { alert("Sorry, but this File ID is too big"); return false; }
-            var cmsName = "Textpattern"
-            var cmsVersion = "4.5.2"
-            var gdv_iframe = \'<iframe src="https://apps.groupdocs.com/document-viewer/embed/\'+ans+\'?&referer=\'+cmsName+\'/\'+cmsVersion+\'" frameborder="0" width="600" height="400"></iframe>\';
-            
+            var cmsName = "Textpattern-Viewer"
+            var cmsVersion = "1.0"
+            var gdv_iframe = \'<iframe src="https://apps.groupdocs.com/document-viewer/embed/\'+ans+\'?&referer=\'+cmsName+\'/\'+cmsVersion+\'" frameborder="0" width="600" height="400">If you can see this text, your browser does not support iframes. Please enable iframe support in your browser or use the latest version of any popular web browser such as Mozilla Firefox or Google Chrome. For more help, please check our documentation Wiki: http://groupdocs.com/docs/display/Viewer/GroupDocs+Viewer+Integration+with+3rd+Party+Platforms</iframe>\';
+
             // insert in the end of <textarea id="body">
             var gdv_body = $("textarea#body").html()+gdv_iframe;
             $("textarea#body").html(gdv_body);
@@ -94,7 +94,6 @@ function gdv_javascript(){
     $r.= '</script>';
     return $r;
 }
-
 # --- END PLUGIN CODE ---
 if (0) {
 ?>
